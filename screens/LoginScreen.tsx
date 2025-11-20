@@ -1,8 +1,10 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
+    const navigation=useNavigation();
     const [showPassword, setShowPassword] = useState(false);
     const setVisibility = () => {
         setShowPassword(!showPassword)
@@ -25,16 +27,13 @@ const LoginScreen = () => {
                     </TouchableOpacity>
                 </View>
 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>navigation.navigate("Home")}>
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Text style={styles.normalText}>Don't have an account? Register</Text>
                 </TouchableOpacity>
             </View>
-
-
-
         </View>
     )
 }
